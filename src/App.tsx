@@ -1,9 +1,9 @@
 import React, { FormEvent, useState } from 'react';
-import {SearchResults} from './components/SearchResults';
+import { SearchResults } from './components/SearchResults';
 function App() {
 
   const [search, setSearch] = useState('');
-  const [results,setResults] = useState([]);
+  const [results, setResults] = useState([]);
   async function handleSearch(event: FormEvent) {
     event.preventDefault();
 
@@ -12,7 +12,7 @@ function App() {
     const response = await fetch(`http://localhost:3333/products?q=${search}`)
     const data = await response.json();
 
-      setResults(data);
+    setResults(data);
 
   }
   return (
@@ -29,7 +29,7 @@ function App() {
         <button type="submit">Buscar</button>
       </form>
 
-      <SearchResults results ={results}/>
+      <SearchResults results={results} />
     </div>
   );
 }
