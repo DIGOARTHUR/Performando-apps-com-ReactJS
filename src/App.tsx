@@ -4,6 +4,7 @@ function App() {
 
   const [search, setSearch] = useState('');
   const [results, setResults] = useState([]);
+
   async function handleSearch(event: FormEvent) {
     event.preventDefault();
 
@@ -15,6 +16,11 @@ function App() {
     setResults(data);
 
   }
+
+  async function addToWishlist(id:number){
+    console.log(id);
+  }
+
   return (
     <div className="App">
       <h1>Search</h1>
@@ -29,7 +35,10 @@ function App() {
         <button type="submit">Buscar</button>
       </form>
 
-      <SearchResults results={results} />
+      <SearchResults 
+      results={results} 
+      onAddToWishList={addToWishlist}
+      />
     </div>
   );
 }
